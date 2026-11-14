@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Denylson Manutenção de Esteiras</title>
+<meta name="description" content="Visita técnica grátis em até 24h na Grande SP. Conserto de esteiras Movement, Athletic, Caloi, Kikos e outras marcas, com 3 meses de garantia.">
+<link rel="icon" type="image/png" href="logos/denylson-icone.png">
+<link rel="apple-touch-icon" href="logos/denylson-icone.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Archivo:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+<style>
+/* Layout: topo escuro com foto do fundador e faixa azul em loop; seções em coluna de 1120px; carrosséis de logos e de avaliações */
+:root{
+  --bg:#F1F4FA; --surface:#FFFFFF; --ink:#111A2B; --muted:#4A5870; --line:#D6DEEA;
+  --accent:#1A5FE0; --accent-ink:#FFFFFF; --accent-soft:#E3ECFD;
+  --belt:#0D1422; --belt-2:#18233A; --belt-ink:#EEF3FB; --belt-muted:#A5B3CA;
+  --led:#4C9BFF; --logo-bg:#FFFFFF;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-led:"Share Tech Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0A101C; --surface:#121A2A; --ink:#E6EDF8; --muted:#9AA9BF; --line:#22304A;
+  --accent:#2F74F0; --accent-ink:#FFFFFF; --accent-soft:#13254A;
+  --belt:#070B14; --belt-2:#111A2C; --belt-ink:#EEF3FB; --belt-muted:#A5B3CA;
+  --led:#5AA6FF; --logo-bg:#FFFFFF; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A101C; --surface:#121A2A; --ink:#E6EDF8; --muted:#9AA9BF; --line:#22304A;
+  --accent:#2F74F0; --accent-ink:#FFFFFF; --accent-soft:#13254A;
+  --belt:#070B14; --belt-2:#111A2C; --belt-ink:#EEF3FB; --belt-muted:#A5B3CA;
+  --led:#5AA6FF; --logo-bg:#FFFFFF; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;margin:0}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0;text-wrap:balance;letter-spacing:.2px}
+h2{font-size:clamp(2rem,4.2vw,2.9rem);font-weight:800;text-transform:uppercase}
+h3{font-size:1.45rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(56px,8vw,96px)}
+.eyebrow{font-family:var(--f-led);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+.lead{color:var(--muted);max-width:62ch}
+.head{display:grid;gap:14px;margin-bottom:40px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--accent-ink);font-family:var(--f-display);font-weight:700;font-size:1.3rem;letter-spacing:.6px;text-transform:uppercase;text-decoration:none;padding:16px 26px;border-radius:10px;border:0;transition:transform .15s ease,filter .15s ease}
+.btn:hover{filter:brightness(1.07);transform:translateY(-1px)}
+.btn:focus-visible,.faq summary:focus-visible,.top a:focus-visible,.float:focus-visible{outline:3px solid var(--led);outline-offset:3px}
+.btn svg{width:24px;height:24px;flex:none}
+
+/* topo */
+.top{background:var(--belt);color:var(--belt-ink)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand-logo{height:78px;width:auto;display:block}
+footer.site .brand-logo{height:120px;margin-bottom:6px}
+
+/* hero: lona de esteira */
+.hero{background:var(--belt);color:var(--belt-ink);position:relative;overflow:hidden;padding-block:clamp(40px,7vw,88px) 0}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.9fr);gap:clamp(32px,5vw,64px);align-items:center;padding-bottom:clamp(76px,9vw,112px)}
+.hero h1{font-size:clamp(2.7rem,6.4vw,4.9rem);font-weight:800;text-transform:uppercase;margin:16px 0 20px}
+.hero h1 em{font-style:normal;color:var(--led)}
+.hero .sub{color:var(--belt-muted);font-size:1.12rem;max-width:56ch}
+.hero .cta{display:grid;gap:12px;justify-items:start;margin-top:30px}
+.hero .eyebrow{color:var(--led)}
+
+
+
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:10px;align-content:start}
+.step .n{font-family:var(--f-led);color:var(--accent);font-size:.9rem;letter-spacing:2px}
+.step p{color:var(--muted)}
+
+/* serviços */
+.services{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,64px);align-items:start}
+.svc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc li{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.svc h3{font-size:1.3rem}
+.svc p{color:var(--muted)}
+
+/* marcas */
+.brands{background:var(--surface);position:relative}
+/* divisória: linha de 1px que some nas pontas e fica azul no meio */
+.brands::before,.brands::after{content:"";position:absolute;left:0;right:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,var(--line) 20%,var(--accent) 50%,var(--line) 80%,transparent)}
+.brands::before{top:0}.brands::after{bottom:0}
+
+.marquee{margin-top:34px;background:var(--belt);overflow:hidden;padding-block:30px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;width:max-content;animation:slide 26s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.set{display:flex;align-items:center;gap:clamp(48px,7vw,96px);padding-right:clamp(48px,7vw,96px)}
+.marquee:not(.clients) .set img{width:auto;max-width:none;filter:brightness(0) invert(1);opacity:.92}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* logos de clientes: mesma faixa, em cartões brancos e cores originais */
+.marquee.clients{margin-top:0;background:transparent;padding-block:6px}
+.marquee.clients .track{animation-duration:32s}
+.marquee.clients .set{gap:18px;padding-right:18px}
+.logo{flex:none;width:220px;background:var(--logo-bg);border:1px solid var(--line);border-radius:14px;height:120px;display:grid;place-items:center;padding:18px}
+.logo img{max-height:56px;max-width:100%;object-fit:contain}
+.logo img.tall{max-height:84px}
+.logo.usp{width:260px;display:flex;align-items:center;justify-content:center;gap:16px}
+.logo.usp img{max-width:none;width:auto}
+.logo.usp img.tall{height:84px}
+.logo.usp img:not(.tall){height:40px}
+
+/* depoimentos */
+.q-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.q-head h2{min-width:0}
+.q-nav{display:flex;gap:10px;flex:none}
+.q-nav button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;color:var(--ink);font-size:1.4rem;cursor:pointer;transition:background .15s,color .15s}
+.q-nav button:hover{background:var(--ink);color:var(--bg)}
+.q-nav button:focus-visible,.carousel:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+/* carrossel preso à mesma largura do conteúdo: 3 cartões inteiros no computador, 1 e um pedaço no celular */
+.carousel{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;overscroll-behavior-x:contain;scrollbar-width:none;
+  max-width:1120px;margin-inline:auto;padding-inline:max(16px, env(safe-area-inset-left,0px));scroll-padding-inline:16px;padding-block:4px 8px}
+.carousel::-webkit-scrollbar{display:none}
+.carousel .q{flex:0 0 calc((100% - 36px) / 3);scroll-snap-align:start;margin:0}
+@media (max-width:900px){.carousel .q{flex-basis:min(400px,84%)}}.q-hint{color:var(--muted);font-size:.88rem;margin-top:14px;display:none}
+.q{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:16px;align-content:space-between}
+.q blockquote{margin:0;font-size:1.08rem;line-height:1.55}
+.q footer{display:grid;gap:6px;font-size:.92rem;padding-top:14px;border-top:1px solid var(--line)}
+.q footer b{font-weight:600}
+.stars{color:#F2A900;letter-spacing:2px;font-size:1rem}
+.src{color:var(--muted);font-size:.85rem}
+
+/* garantia */
+.guarantee{background:var(--belt);color:var(--belt-ink)}
+.guarantee .wrap{display:block}
+.guarantee p{color:var(--belt-muted);max-width:56ch;margin-top:12px}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;font-weight:600;font-size:1.05rem;padding:18px 32px 18px 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);font-family:var(--f-display);font-size:1.7rem;color:var(--accent);line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);padding-bottom:18px}
+
+/* cta final */
+.final{text-align:left}
+.final .box{background:var(--accent-soft);border:1px solid var(--line);border-radius:22px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center}
+.final h2{font-size:clamp(1.9rem,3.8vw,2.6rem)}
+.final p{color:var(--muted);margin-top:10px}
+.final .num{font-family:var(--f-led);font-size:1rem;color:var(--ink);margin-top:10px;text-align:center;user-select:all}
+
+footer.site{background:var(--belt);color:var(--belt-muted);font-size:.92rem}
+footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
+
+.float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:20}
+.float svg{width:32px;height:32px}
+
+/* botão de WhatsApp repetido a cada duas seções */
+.mid-cta{display:grid;justify-items:center;gap:10px;margin-top:clamp(36px,5vw,56px);text-align:center}
+.mid-cta p{color:var(--muted);font-size:.92rem}
+.guarantee .mid-cta p{color:var(--belt-muted)}
+.guarantee .mid-cta{justify-items:start;text-align:left;margin-top:28px}
+
+/* topo novo: foto do fundador à direita, menu em pílula, selos sobre a foto, faixa em loop */
+.hero-shell{position:relative;background:var(--belt);color:var(--belt-ink);overflow:hidden;isolation:isolate}
+/* computador: foto em alta à direita, sem ampliar além do tamanho original, com a borda esquerda sumindo no fundo */
+.hero-photo{position:absolute;top:0;bottom:0;right:0;width:min(60%,920px);z-index:-1;
+  background:url("fotos/denylson-hd-v2.jpg") 50% 12%/cover no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+.hero-photo::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--belt) 55%,transparent) 0%,color-mix(in srgb,var(--belt) 15%,transparent) 45%,transparent 100%),
+             linear-gradient(0deg,var(--belt) 0%,transparent 28%)}
+.founder-note{margin-top:18px;max-width:56ch;color:var(--belt-muted);font-size:1.02rem;padding-left:16px;border-left:3px solid var(--led)}
+.founder-note b{color:var(--belt-ink);font-weight:600}
+.hero-shell .top{background:transparent;position:relative;z-index:2}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:16px}
+.nav{display:flex;gap:4px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--belt) 72%,transparent);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px)}
+/* menu centralizado na página, independente da largura do logo */
+.top .wrap{position:relative}
+.nav{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.nav a{color:var(--belt-ink);text-decoration:none;font-size:.92rem;font-weight:500;padding:8px 14px;border-radius:999px;white-space:nowrap}
+.nav a:hover{background:rgba(255,255,255,.08)}
+.nav a:focus-visible{outline:3px solid var(--led);outline-offset:2px}
+.hero-shell .hero{background:transparent;overflow:visible;padding-block:clamp(36px,6vw,80px) clamp(48px,6vw,80px)}
+.hero-shell .hero::after{display:none}
+.hero-shell .hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);padding-bottom:0;align-items:end;min-height:clamp(420px,48vw,560px)}
+.hero-text{align-self:center}
+.hero-shell .hero h1{font-size:clamp(2.4rem,4.4vw,3.8rem)}
+.bar{display:block;width:64px;height:3px;background:var(--led);border-radius:2px;margin-bottom:18px}
+.hero-badges{list-style:none;margin:0;padding:0;display:grid;gap:10px;justify-items:end;align-self:end}
+.hero-badges li{display:flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;border-radius:12px;font-size:.95rem;line-height:1.3;
+  background:color-mix(in srgb,var(--belt) 78%,transparent);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);color:var(--belt-ink)}
+.hero-badges li svg{flex:none;width:26px;height:26px;padding:5px;border-radius:50%;background:var(--accent);color:#fff}
+.hero-badges b{font-weight:600}
+.hero-badges i.count{font-style:normal;font-variant-numeric:tabular-nums}
+.ticker{background:var(--accent);color:var(--accent-ink);overflow:hidden;padding-block:12px}
+.tk-track{display:flex;width:max-content;animation:slide 40s linear infinite}
+.tk-set{display:flex}
+.tk-set span{font-family:var(--f-led);font-size:.95rem;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;padding-inline:22px;position:relative}
+.tk-set span::after{content:"";position:absolute;right:-3px;top:50%;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.6;transform:translateY(-50%)}
+
+@media (max-width:1100px){.nav{display:none}}
+@media (max-width:900px){
+  .hero-photo{background-image:url("fotos/denylson-v2.jpg");left:0;width:auto;-webkit-mask-image:none;mask-image:none;bottom:auto;height:min(620px,150vw);background-size:cover;background-position:50% 10%;background-color:var(--belt)}
+  .hero-photo::after{background:radial-gradient(120% 75% at 50% 28%,transparent 45%,color-mix(in srgb,var(--belt) 70%,transparent) 100%),linear-gradient(180deg,color-mix(in srgb,var(--belt) 40%,transparent) 0%,color-mix(in srgb,var(--belt) 20%,transparent) 22%,color-mix(in srgb,var(--belt) 85%,transparent) 55%,var(--belt) 82%)}
+  .hero-shell .hero{padding-top:110px}
+  .hero-shell .hero h1{font-size:2.15rem;margin:10px 0 12px}
+  .hero-shell .hero .sub{font-size:.98rem;line-height:1.5}
+  .hero-shell .hero .cta{margin-top:18px}
+  .hero-shell .bar{margin-bottom:12px}
+  .hero-shell .hero .wrap{min-height:0;align-items:start;grid-template-columns:minmax(0,1fr);gap:28px}
+  .hero-badges{justify-items:stretch}
+}
+@media (max-width:900px){
+  .hero .wrap,.services,.guarantee .wrap,.final .box{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  .q-nav{display:none}
+  .q-hint{display:block}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .top .brand-logo{height:64px}
+  .btn{width:100%;font-size:1.2rem}
+  .hero .cta{justify-items:stretch}
+  .logo{width:170px}
+  .svc li{grid-template-columns:minmax(0,1fr)}
+  .logo{height:100px;padding:12px}
+  .logo img.tall,.logo.usp img.tall{height:70px;max-height:70px}
+  .logo.usp{width:210px;gap:12px}
+  .logo.usp img:not(.tall){height:32px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}
+  .track{width:auto;justify-content:center}.set{flex-wrap:wrap;justify-content:center;padding:0 16px;row-gap:28px}.set[aria-hidden]{display:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.03c-.24.68-1.42 1.31-1.95 1.36-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.24-.27.53-.34.71-.34l.51.01c.16.01.38-.06.6.46.24.55.79 1.89.86 2.03.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.91 1.21 2.18 1.35.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.66-.17 1.33z"/></symbol>
+  <symbol id="ok" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M4 12.5l5 5L20 6.5"/></symbol>
+</svg>
+
+<main>
+<div class="hero-shell">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <header class="top">
+    <div class="wrap">
+      <img class="brand-logo" src="logos/denylson-logo.png?v=2" alt="Denylson Manutenção de Esteiras" width="800" height="561">
+      <nav class="nav" aria-label="Seções da página">
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="h1">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="bar" aria-hidden="true"></span>
+        <p class="eyebrow">Conserto de esteiras</p>
+        <h1 id="h1">Sua esteira parou? Nosso técnico <em>vai até sua casa em até 24 horas.</em></h1>
+        <p class="sub">Atendemos toda a capital de São Paulo, Osasco, Barueri, Santana de Parnaíba, Cajamar, Cotia, Carapicuíba, Itapevi, Guarulhos e Arujá.</p>
+        <div class="cta">
+          <a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar visita pelo WhatsApp</a>
+        </div>
+        <p class="founder-note"><b>Denylson dos Santos conserta esteiras há mais de 30 anos.</b> Ele fundou a empresa e coordena todos os atendimentos. Na visita, Denylson vai junto com o técnico até a sua casa, avalia a esteira e passa o orçamento pessoalmente.</p>
+      </div>
+      <ul class="hero-badges" aria-label="Resumo do atendimento">
+        <li><svg aria-hidden="true"><use href="#ok"/></svg><span><b>+<i class="count" data-to="30">30</i> anos</b> consertando esteiras</span></li>
+        <li><svg aria-hidden="true"><use href="#ok"/></svg><span><b>Visita técnica grátis</b> em até <i class="count" data-to="24">24</i>h</span></li>
+        <li><svg aria-hidden="true"><use href="#ok"/></svg><span><b><i class="count" data-to="3">3</i> meses</b> de garantia</span></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<div class="ticker" role="marquee" aria-label="Visita técnica grátis, atendimento em até 24 horas, 3 meses de garantia, mais de 30 anos consertando esteiras, técnicos formados pelas fábricas">
+  <div class="tk-track" aria-hidden="true">
+    <div class="tk-set"><span>Visita técnica grátis</span><span>Atendimento em até 24 horas</span><span>3 meses de garantia em peças e mão de obra</span><span>Mais de 30 anos consertando esteiras</span><span>Técnicos formados pelas fábricas</span></div>
+    <div class="tk-set"><span>Visita técnica grátis</span><span>Atendimento em até 24 horas</span><span>3 meses de garantia em peças e mão de obra</span><span>Mais de 30 anos consertando esteiras</span><span>Técnicos formados pelas fábricas</span></div>
+  </div>
+</div>
+
+<section id="como-funciona" aria-labelledby="h-steps">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Como funciona</p>
+      <h2 id="h-steps">Da mensagem no WhatsApp à esteira funcionando, em 3 passos</h2>
+    </div>
+    <ol class="steps" style="list-style:none;margin:0;padding:0">
+      <li class="step"><span class="n">PASSO 1</span><h3>Chame no WhatsApp</h3><p>Informe a marca da esteira, o defeito e o seu endereço.</p></li>
+      <li class="step"><span class="n">PASSO 2</span><h3>O técnico vai até sua casa em até 24 horas</h3><p>A visita é grátis. Ele testa a esteira e encontra a falha já na primeira visita.</p></li>
+      <li class="step"><span class="n">PASSO 3</span><h3>Você aprova o orçamento</h3><p>O conserto só começa depois do seu sim, e as peças e a mão de obra saem com 3 meses de garantia.</p></li>
+    </ol>
+  </div>
+  <div class="wrap mid-cta"><a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar visita pelo WhatsApp</a><p>Visita técnica grátis. Atendimento no WhatsApp 24 horas.</p></div>
+</section>
+
+<section id="servicos" aria-labelledby="h-svc">
+  <div class="wrap services">
+    <div class="head" style="margin:0">
+      <p class="eyebrow">Serviços</p>
+      <h2 id="h-svc">O que o técnico resolve na sua esteira</h2>
+    </div>
+    <ul class="svc">
+      <li><h3>Troca de lona e deck</h3><p>Para lona gasta, rasgada ou que patina.</p></li>
+      <li><h3>Motor</h3><p>Recondicionamento ou troca quando o motor perde força ou desliga sozinho.</p></li>
+      <li><h3>Placa e painel</h3><p>Conserto da placa eletrônica e do painel.</p></li>
+      <li><h3>Manutenção preventiva</h3><p>Limpeza interna, lubrificação da lona, alinhamento e ajuste da tensão.</p></li>
+      <li><h3>Montagem e desmontagem</h3><p>Para esteira nova ou mudança de casa, com calibração no final.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="brands" aria-labelledby="h-brands">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:0">
+      <p class="eyebrow">Marcas</p>
+      <h2 id="h-brands">Consertamos Movement, Athletic, Caloi, Kikos, Dream Fitness e outras marcas</h2>
+      <p class="lead">Trabalhamos com peças nacionais e importadas. Se a sua marca não aparece aqui, mande o modelo no WhatsApp.</p>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="track">
+      <div class="set">
+        <img src="logos/marcas/movement.png" alt="Movement" style="height:30px">
+        <img src="logos/marcas/athletic.png" alt="Athletic" style="height:46px">
+        <img src="logos/marcas/caloi.png" alt="Caloi" style="height:32px">
+        <img src="logos/marcas/kikos.png" alt="Kikos" style="height:96px;margin-block:-24px">
+        <img src="logos/marcas/dream-fitness.png" alt="Dream Fitness" style="height:66px">
+      </div>
+      <div class="set" aria-hidden="true">
+        <img src="logos/marcas/movement.png" alt="" style="height:30px">
+        <img src="logos/marcas/athletic.png" alt="" style="height:46px">
+        <img src="logos/marcas/caloi.png" alt="" style="height:32px">
+        <img src="logos/marcas/kikos.png" alt="" style="height:96px;margin-block:-24px">
+        <img src="logos/marcas/dream-fitness.png" alt="" style="height:66px">
+      </div>
+    </div>
+  </div>
+  <div class="wrap mid-cta"><a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar visita pelo WhatsApp</a><p>Visita técnica grátis. Atendimento no WhatsApp 24 horas.</p></div>
+</section>
+
+<section aria-labelledby="h-logos">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Quem já chamou o Denylson</p>
+      <h2 id="h-logos">Academias, clubes e condomínios que já chamaram o Denylson</h2>
+    </div>
+  </div>
+  <div class="marquee clients">
+    <div class="track">
+      <div class="set">
+        <div class="logo"><img src="logos/skyfit.png" alt="Skyfit Academia"></div>
+        <div class="logo"><img src="logos/bluefit.png" alt="Blue Fit" style="max-height:34px"></div>
+        <div class="logo usp"><img class="tall" src="logos/usp-brasao.png" alt="Brasão da USP"><img src="logos/usp-logotipo.png" alt="Universidade de São Paulo (USP)"></div>
+        <div class="logo"><img src="logos/esperia.png" alt="Clube Esperia"></div>
+        <div class="logo"><img src="logos/condominio-alto-de-moema.png" alt="Condomínio Alto de Moema"></div>
+      </div>
+      <div class="set" aria-hidden="true">
+        <div class="logo"><img src="logos/skyfit.png" alt=""></div>
+        <div class="logo"><img src="logos/bluefit.png" alt="" style="max-height:34px"></div>
+        <div class="logo usp"><img class="tall" src="logos/usp-brasao.png" alt=""><img src="logos/usp-logotipo.png" alt=""></div>
+        <div class="logo"><img src="logos/esperia.png" alt=""></div>
+        <div class="logo"><img src="logos/condominio-alto-de-moema.png" alt=""></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="avaliacoes" aria-labelledby="h-quotes" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Avaliações no Google</p>
+      <div class="q-head">
+        <h2 id="h-quotes">O que dizem os clientes que receberam nosso técnico em casa</h2>
+        <div class="q-nav">
+          <button type="button" id="q-prev" aria-label="Avaliação anterior">&#8592;</button>
+          <button type="button" id="q-next" aria-label="Próxima avaliação">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel" id="q-list" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Avaliações de clientes no Google, arraste para o lado">
+    <figure class="q"><blockquote>“Eles vieram até a minha residência para realizar a troca da lona da minha esteira, e o resultado ficou simplesmente perfeito. Dá para perceber o cuidado, a experiência e o profissionalismo em cada detalhe do trabalho.”</blockquote><footer><b>Jaqueline Camargo</b><span><span class="stars" aria-label="5 estrelas">★★★★★</span> <span class="src">Avaliação no Google</span></span></footer></figure>
+    <figure class="q"><blockquote>“São atenciosos, educados, pontuais e foram super profissionais. Resolveram tudo.”</blockquote><footer><b>Débora Cristina Oliveira Santos</b><span><span class="stars" aria-label="5 estrelas">★★★★★</span> <span class="src">Avaliação no Google</span></span></footer></figure>
+    <figure class="q"><blockquote>“Excelente atendimento, pontual. Deixa tudo muito bem explicado, não deixa nenhuma dúvida. Trabalho de qualidade.”</blockquote><footer><b>Alan Morais</b><span><span class="stars" aria-label="5 estrelas">★★★★★</span> <span class="src">Avaliação no Google</span></span></footer></figure>
+    <figure class="q"><blockquote>“Super atendimento. São muito profissionais e gentis. Ótimo atendimento e bom preço.”</blockquote><footer><b>Antonia Galdino</b><span><span class="stars" aria-label="5 estrelas">★★★★★</span> <span class="src">Avaliação no Google</span></span></footer></figure>
+    <figure class="q"><blockquote>“Atendimento de excelência. Quanto aos profissionais que me atenderam, sem palavras, só agradecimentos.”</blockquote><footer><b>Davi Freire</b><span><span class="stars" aria-label="5 estrelas">★★★★★</span> <span class="src">Avaliação no Google</span></span></footer></figure>
+  </div>
+  <p class="q-hint wrap">Arraste para o lado para ver mais avaliações</p>
+  <div class="wrap mid-cta"><a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar visita pelo WhatsApp</a><p>Visita técnica grátis. Atendimento no WhatsApp 24 horas.</p></div>
+</section>
+
+<section class="guarantee" aria-labelledby="h-g">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--led)">Garantia</p>
+      <h2 id="h-g" style="margin-top:12px">3 meses de garantia em peças e mão de obra</h2>
+      <p>A garantia cobre as peças trocadas e o serviço do técnico durante 3 meses depois do conserto.</p>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" aria-labelledby="h-faq">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 id="h-faq">Antes de chamar o técnico</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Vocês consertam a minha marca de esteira?</summary><p>Consertamos Movement, Athletic, Caloi, Kikos, Dream Fitness e outras marcas nacionais e importadas. Mande o modelo no WhatsApp para confirmar.</p></details>
+      <details><summary>Quanto custa o conserto?</summary><p>Depende do defeito. O técnico faz o diagnóstico na sua casa, passa o orçamento e o conserto só começa depois que você aprovar.</p></details>
+      <details><summary>A visita técnica é cobrada?</summary><p>Não. A visita e o diagnóstico são grátis. Você só paga se aprovar o orçamento do conserto.</p></details>
+      <details><summary>O conserto é feito na minha casa?</summary><p>Sempre que o defeito permite, sim. Alguns consertos, como o de placa ou de motor, podem precisar de oficina. Nesse caso, o prazo de volta depende do defeito.</p></details>
+      <details><summary>Em quanto tempo o técnico chega?</summary><p>Em até 24 horas na Grande São Paulo.</p></details>
+      <details><summary>Vocês atendem no litoral e no interior?</summary><p>Sim. Nesses casos, a data da visita é combinada pelo WhatsApp.</p></details>
+      <details><summary>O que a garantia cobre?</summary><p>Peças trocadas e mão de obra, por 3 meses.</p></details>
+      <details><summary>Vocês atendem academias e condomínios?</summary><p>Sim, com contratos de manutenção preventiva e corretiva. Fale com a gente pelo WhatsApp.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" aria-labelledby="h-final" style="padding-top:0">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <h2 id="h-final">Informe a marca, o defeito e o seu endereço, e a gente marca a visita</h2>
+        <p>O WhatsApp atende 24 horas por dia. A visita técnica é grátis.</p>
+      </div>
+      <div>
+        <a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Chamar no WhatsApp</a>
+        <p class="num">(11) 93053-5990</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <img class="brand-logo" src="logos/denylson-logo.png?v=2" alt="Denylson Manutenção de Esteiras" width="800" height="561" loading="lazy">
+    <span>WhatsApp (11) 93053-5990, atendimento 24 horas</span>
+    <span>Capital de São Paulo, Osasco, Barueri, Santana de Parnaíba, Cajamar, Cotia, Carapicuíba, Itapevi, Guarulhos, Arujá, litoral e interior de São Paulo</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var list=document.getElementById('q-list'),prev=document.getElementById('q-prev'),next=document.getElementById('q-next');
+  if(!list||!prev||!next)return;
+  // posições exatas de cada cartão; a animação é própria porque a rolagem suave nativa não anda em alguns navegadores
+  var cards=[].slice.call(list.querySelectorAll('.q'));
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,busy=false;
+  function max(){return list.scrollWidth-list.clientWidth}
+  function stops(){var base=cards[0].offsetLeft;return cards.map(function(c){return Math.min(c.offsetLeft-base,max())})}
+  function current(){var s=stops(),x=list.scrollLeft,best=0;s.forEach(function(v,i){if(Math.abs(v-x)<Math.abs(s[best]-x))best=i});return best}
+  function go(to){
+    to=Math.max(0,Math.min(to,max()));
+    if(reduce){list.scrollLeft=to;return}
+    var from=list.scrollLeft,t0=null,d=450;busy=true;
+    list.style.scrollSnapType='none';list.style.scrollBehavior='auto';
+    function done(){list.scrollLeft=to;list.style.scrollSnapType='';list.style.scrollBehavior='';busy=false}
+    function f(t){if(!busy)return;if(t0===null)t0=t;var p=Math.min((t-t0)/d,1),e=p<.5?2*p*p:1-Math.pow(-2*p+2,2)/2;
+      list.scrollLeft=from+(to-from)*e;
+      if(p<1)requestAnimationFrame(f);else done()}
+    requestAnimationFrame(f);
+    // garantia: se a aba estiver em segundo plano e a animação não rodar, o cartão passa direto
+    setTimeout(function(){if(busy)done()},d+200);
+  }
+  next.addEventListener('click',function(){
+    if(busy)return;var s=stops();
+    if(list.scrollLeft>=max()-4)go(0);else{var i=current(),t=s[i+1];go(t===undefined||t<=list.scrollLeft+4?max():t)}
+  });
+  prev.addEventListener('click',function(){
+    if(busy)return;var s=stops();
+    if(list.scrollLeft<=4)go(max());else{var i=current();go(s[Math.max(0,i-1)])}
+  });
+})();
+(function(){
+  var els=document.querySelectorAll('.count'),panel=document.querySelector('.hero-badges');
+  if(!els.length||!panel||!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // os números finais ficam na página; só viram 0 no instante em que a contagem começa
+  var dur=1400,start=null;
+  function tick(t){
+    if(start===null)start=t;
+    var p=Math.min((t-start)/dur,1),e=1-Math.pow(1-p,3);
+    els.forEach(function(el){el.textContent=Math.round(+el.dataset.to*e)});
+    if(p<1)requestAnimationFrame(tick);
+  }
+  var io=new IntersectionObserver(function(entries){
+    if(entries.some(function(en){return en.isIntersecting})){
+      io.disconnect();
+      els.forEach(function(el){el.textContent='0'});
+      setTimeout(function(){requestAnimationFrame(tick)},150);
+      // garantia: se a aba estiver em segundo plano, os números finais aparecem mesmo assim
+      setTimeout(function(){els.forEach(function(el){el.textContent=el.dataset.to})},dur+600);
+    }
+  },{threshold:0.6});
+  io.observe(panel);
+})();
+</script>
+
+<a class="float" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener" aria-label="Chamar o Denylson no WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg></a>
+</body>
+</html>
