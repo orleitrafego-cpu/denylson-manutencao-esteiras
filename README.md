@@ -6,7 +6,7 @@ Landing page para anúncios do Google. Leva o visitante a agendar a visita técn
 
 - `index.html`: a página inteira (HTML, CSS e JavaScript no mesmo arquivo)
 - `logos/`: logo da D&J, ícone da aba, logos dos clientes e `logos/marcas/` com as marcas de esteira
-- `fotos/`: foto do fundador, Denylson dos Santos, em duas versões (`dj-manutencao-foto-hd.jpg` para computador, `dj-manutencao-foto.jpg` para celular)
+- `fotos/`: foto do técnico em duas versões (`dj-manutencao-foto-hd.jpg` para computador, `dj-manutencao-foto.jpg` para celular)
 
 ## Como publicar
 
