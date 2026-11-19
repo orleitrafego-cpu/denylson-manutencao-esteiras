@@ -14,13 +14,13 @@ Landing page para anúncios do Google. Leva o visitante a agendar a visita técn
 
 ## Seções
 
-1. Topo com foto do fundador, menu, selos com contagem animada e botão de WhatsApp
+1. Topo com foto do técnico, menu, selos com contagem animada e botão de WhatsApp
 2. Faixa azul em loop
 3. Como funciona (3 passos)
 4. Serviços
 5. Marcas atendidas (faixa de logos em loop)
 6. Clientes (faixa de logos em loop)
 7. Avaliações do Google (carrossel com setas no computador e arraste no celular)
-8. Garantia
+8. Fotos dos atendimentos (carrossel com setas no computador e arraste no celular)
 9. Perguntas frequentes
 10. Chamada final e rodapé

@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Archivo:wght@400;500;600&family=Share+Tech+Mono&display=swap">
 <style>
-/* Layout: topo escuro com foto do fundador e faixa azul em loop; seções em coluna de 1120px; carrosséis de logos e de avaliações */
+/* Layout: topo escuro com foto do técnico e faixa azul em loop; seções em coluna de 1120px; carrosséis de logos, avaliações e fotos dos atendimentos */
 :root{
   --bg:#F1F4FA; --surface:#FFFFFF; --ink:#111A2B; --muted:#4A5870; --line:#D6DEEA;
   --accent:#1A5FE0; --accent-ink:#FFFFFF; --accent-soft:#E3ECFD;
@@ -130,10 +130,6 @@ footer.site .brand-logo{height:120px;margin-bottom:6px}
 .stars{color:#F2A900;letter-spacing:2px;font-size:1rem}
 .src{color:var(--muted);font-size:.85rem}
 
-/* garantia */
-.guarantee{background:var(--belt);color:var(--belt-ink)}
-.guarantee .wrap{display:block}
-.guarantee p{color:var(--belt-muted);max-width:56ch;margin-top:12px}
 
 /* faq */
 .faq{display:grid;gap:10px;max-width:860px}
@@ -160,10 +156,8 @@ footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
 /* botão de WhatsApp repetido a cada duas seções */
 .mid-cta{display:grid;justify-items:center;gap:10px;margin-top:clamp(36px,5vw,56px);text-align:center}
 .mid-cta p{color:var(--muted);font-size:.92rem}
-.guarantee .mid-cta p{color:var(--belt-muted)}
-.guarantee .mid-cta{justify-items:start;text-align:left;margin-top:28px}
 
-/* topo novo: foto do fundador à direita, menu em pílula, selos sobre a foto, faixa em loop */
+/* topo: foto do técnico à direita, menu em pílula, selos sobre a foto, faixa em loop */
 .hero-shell{position:relative;background:var(--belt);color:var(--belt-ink);overflow:hidden;isolation:isolate}
 /* computador: foto em alta à direita, sem ampliar além do tamanho original, com a borda esquerda sumindo no fundo */
 .hero-photo{position:absolute;top:0;bottom:0;right:0;width:min(60%,920px);z-index:-1;
@@ -215,7 +209,7 @@ footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
   .hero-badges{justify-items:stretch}
 }
 @media (max-width:900px){
-  .hero .wrap,.services,.guarantee .wrap,.final .box{grid-template-columns:minmax(0,1fr)}
+  .hero .wrap,.services,.final .box{grid-template-columns:minmax(0,1fr)}
   .steps{grid-template-columns:minmax(0,1fr)}
   .q-nav{display:none}
   .q-hint{display:block}
