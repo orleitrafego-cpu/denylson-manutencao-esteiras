@@ -119,6 +119,10 @@ footer.site .brand-logo{height:120px;margin-bottom:6px}
 .carousel::-webkit-scrollbar{display:none}
 .carousel .q{flex:0 0 calc((100% - 36px) / 3);scroll-snap-align:start;margin:0}
 @media (max-width:900px){.carousel .q{flex-basis:min(400px,84%)}}.q-hint{color:var(--muted);font-size:.88rem;margin-top:14px;display:none}
+/* galeria de atendimentos: fotos verticais, 4 por tela no computador */
+.carousel .ph{flex:0 0 calc((100% - 54px) / 4);scroll-snap-align:start;margin:0;border-radius:16px;overflow:hidden;background:var(--belt);aspect-ratio:3/4}
+.carousel .ph img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:900px){.carousel .ph{flex-basis:min(300px,68%)}}
 .q{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:16px;align-content:space-between}
 .q blockquote{margin:0;font-size:1.08rem;line-height:1.55}
 .q footer{display:grid;gap:6px;font-size:.92rem;padding-top:14px;border-top:1px solid var(--line)}
@@ -394,6 +398,32 @@ footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
   <div class="wrap mid-cta"><a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar visita pelo WhatsApp</a><p>Visita técnica grátis. Atendimento no WhatsApp 24 horas.</p></div>
 </section>
 
+<section id="atendimentos" aria-labelledby="h-fotos" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Atendimentos</p>
+      <div class="q-head">
+        <h2 id="h-fotos">Nossos técnicos em atendimento</h2>
+        <div class="q-nav">
+          <button type="button" id="f-prev" aria-label="Foto anterior">&#8592;</button>
+          <button type="button" id="f-next" aria-label="Próxima foto">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel" id="f-list" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Fotos de atendimentos, arraste para o lado">
+    <figure class="ph"><img src="fotos/atendimento-1.jpg" alt="Técnico consertando esteira em academia" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-2.jpg" alt="Técnico fazendo manutenção em esteira" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-3.jpg" alt="Motor de esteira aberto para conserto" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-4.jpg" alt="Técnico consertando simulador de escada em academia" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-5.jpg" alt="Dois técnicos da D&amp;J consertando simulador de escada" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-6.jpg" alt="Técnico fazendo manutenção em simulador de escada" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-7.jpg" alt="Técnicos avaliando elíptico em academia" width="720" height="960" loading="lazy"></figure>
+    <figure class="ph"><img src="fotos/atendimento-8.jpg" alt="Técnico consertando simulador de escada" width="720" height="960" loading="lazy"></figure>
+  </div>
+  <p class="q-hint wrap">Arraste para o lado para ver mais fotos</p>
+</section>
+
 <section class="guarantee" aria-labelledby="h-g">
   <div class="wrap">
     <div>
@@ -402,6 +432,7 @@ footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
       <p>A garantia cobre as peças trocadas e o serviço do técnico durante 3 meses depois do conserto.</p>
     </div>
   </div>
+  <div class="wrap mid-cta"><a class="btn" href="https://wa.me/5511930535990?text=Ol%C3%A1%2C%20vim%20pelo%20site.%20Minha%20esteira%20%C3%A9%20da%20marca%20___%20e%20est%C3%A1%20com%20este%20problema%3A%20___.%20Meu%20endere%C3%A7o%20%C3%A9%20___." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Agendar visita pelo WhatsApp</a><p>Visita técnica grátis. Atendimento no WhatsApp 24 horas.</p></div>
 </section>
 
 <section id="duvidas" aria-labelledby="h-faq">
@@ -448,11 +479,11 @@ footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
 </footer>
 
 <script>
-(function(){
-  var list=document.getElementById('q-list'),prev=document.getElementById('q-prev'),next=document.getElementById('q-next');
+[['q-list','q-prev','q-next'],['f-list','f-prev','f-next']].forEach(function(ids){
+  var list=document.getElementById(ids[0]),prev=document.getElementById(ids[1]),next=document.getElementById(ids[2]);
   if(!list||!prev||!next)return;
   // posições exatas de cada cartão; a animação é própria porque a rolagem suave nativa não anda em alguns navegadores
-  var cards=[].slice.call(list.querySelectorAll('.q'));
+  var cards=[].slice.call(list.children);
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches,busy=false;
   function max(){return list.scrollWidth-list.clientWidth}
   function stops(){var base=cards[0].offsetLeft;return cards.map(function(c){return Math.min(c.offsetLeft-base,max())})}
@@ -478,7 +509,7 @@ footer.site .wrap{padding-block:34px calc(34px + 64px);display:grid;gap:8px}
     if(busy)return;var s=stops();
     if(list.scrollLeft<=4)go(max());else{var i=current();go(s[Math.max(0,i-1)])}
   });
-})();
+});
 (function(){
   var els=document.querySelectorAll('.count'),panel=document.querySelector('.hero-badges');
   if(!els.length||!panel||!('IntersectionObserver' in window)||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
