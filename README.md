@@ -1,12 +1,12 @@
-# Denylson Manutenção de Esteiras
+# D&J Manutenção de Esteiras
 
 Landing page para anúncios do Google. Leva o visitante a agendar a visita técnica pelo WhatsApp (11) 93053-5990.
 
 ## Estrutura
 
 - `index.html`: a página inteira (HTML, CSS e JavaScript no mesmo arquivo)
-- `logos/`: logo do Denylson, ícone da aba, logos dos clientes e `logos/marcas/` com as marcas de esteira
-- `fotos/`: foto do Denylson em duas versões (`denylson-hd-v2.jpg` para computador, `denylson-v2.jpg` para celular)
+- `logos/`: logo da D&J, ícone da aba, logos dos clientes e `logos/marcas/` com as marcas de esteira
+- `fotos/`: foto do fundador, Denylson dos Santos, em duas versões (`dj-manutencao-foto-hd.jpg` para computador, `dj-manutencao-foto.jpg` para celular)
 
 ## Como publicar
 
